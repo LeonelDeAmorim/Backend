@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<title>All Reviews</title>
+</head>
+<body>
+
+    <h1>All Reviews</h1>
+
+    <div th:if="${#lists.isEmpty(reviews)}">
+        <p>No reviews available.</p>
+    </div>
+
+    <div th:if="${!#lists.isEmpty(reviews)}">
+        <ul>
+            <li th:each="review : ${reviews}">
+                <p>Rating: <span th:text="${review.rating}"></span></p>
+                <p>Comment: <span th:text="${review.comment}"></span></p>
+                <p>User ID: <span th:text="${review.user_id}"></span></p>
+                <p>Item ID: <span th:text="${review.item_id}"></span></p>
+                <p>Created: <span th:text="${review.created}"></span></p>
+                <hr>
+            </li>
+        </ul>
+    </div>
+
+    <br>
+    <button onclick="location.href='/dashboard'">Back to Dashboard</button>
+
+</body>
+</html>

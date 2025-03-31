@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Available Cars</title>
+</head>
+<body>
+    
+  <div th:if="${#lists.isEmpty(cars)}">
+        <p>No cars on sale at the moment.</p>
+    </div>
+    <div>
+        <h2>Available Cars:</h2>
+        <ul>
+            <th:block th:each="car : ${cars}">
+                
+                <p>ID: <span th:text="${car.id}"></span></p>
+                    <p>Brand: <span th:text="${car.brand}"></span></p>
+                    <p>Color: <span th:text="${car.color}"></span></p>
+                    <p>Condition: <span th:text="${car.condition}"></span></p>
+                    <p>Mileage: <span th:text="${car.mileage}"></span></p>
+                    <p>Price: <span th:text="${car.price}"></span></p>
+                    <p>Quantity: <span th:text="${car.quantity}"></span></p>
+                    <p>Shape: <span th:text="${car.shape}"></span></p>
+                    <p>Year: <span th:text="${car.year}"></span></p>
+                <hr>
+            </th:block>
+        </ul>
+    </div>
+        <button onclick="location.href='/dashboard'">Back to Dashboard</button>
+    
+</body>
+</html>
